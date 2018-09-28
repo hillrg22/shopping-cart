@@ -5,6 +5,7 @@ import CartHeader from './CartHeader.js'
 import CartFooter from './CartFooter.js'
 import CartItems from './CartItems.js'
 import CartItemComponent from './CartItemComponent.js'
+import AddItem from './AddItem.js'
 
 const copyright = "2018"
 
