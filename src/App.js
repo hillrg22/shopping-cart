@@ -41,7 +41,7 @@ class App extends Component {
           <CartItems CartItemsList = {this.state.CartItemsList} />
         </div>
         <div>
-          <AddItem />
+          <AddItem Products = {this.state.Products}/>
         </div>
         <footer>
           <CartFooter copyright={copyright}/>

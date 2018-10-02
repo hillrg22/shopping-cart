@@ -2,24 +2,28 @@ import React from 'react'
 
 //should take an array of products & a function that will be called when the form is submitted
 class AddItem extends React.Component {
+  constructor(props){
+  super(props);
+  }
   render(){
     return(
-    <div>
+    <form>
       <div className = "form-group">
-        <label for="Items">Items</label>
+        <label htmlFor="Products">Products</label>
           <select className="form-control" >
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
+            {this.props.Products.map(item => {
+                <option>{this.props.Products.item}</option>
+          })}
           </select>
       </div>
       <div className = "form-group">
-        <label for="Quantity">Quantity</label>
+        <label htmlFor="Quantity">Quantity</label><br></br>
           <input placeholder= "Enter Quantity"/>
         </div>
-    </div>
+      <div>
+        <button type="Submit" className= "btn btn-primary">Submit</button>
+      </div>
+    </form>
     )
   }
 }
