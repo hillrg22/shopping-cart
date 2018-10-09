@@ -7,8 +7,8 @@ const AddItem = (props) => {
       <option>{item.id} {item.name} {item.priceInCents}</option>
     )
   })
-  // const CreateItem = (props) => {
-  //
+  const CreateItem = (props) => {
+
   //     var newItem = {
   //         product:{
   //           id: {},
@@ -19,7 +19,7 @@ const AddItem = (props) => {
   //     }
   //     this.props.formSubmitted(newItem)
   //     console.log(newItem.quantity)
-  // }
+  }
 
     return(
     <form>
