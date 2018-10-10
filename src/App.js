@@ -31,10 +31,7 @@ class App extends Component {
         { id: 48, name: 'Awesome Leather Shoes', priceInCents: 3990 },]
     }
   }
-  // formSubmitted = (newItem) => {
-  //   this.setState({cartItemsList: this.state.CartItemsList.concat(newItem)})
-  //   event.preventDefault()
-  // }
+
   render() {
     return (
       <div className="App">
@@ -45,7 +42,7 @@ class App extends Component {
           <CartItems CartItemsList = {this.state.CartItemsList} />
         </div>
         <div>
-          <AddItem Products = {this.state.Products} formSubmitted = {this.formSubmitted}/>
+          <AddItem Products = {this.state.Products} />
         </div>
         <footer>
           <CartFooter copyright={copyright}/>
