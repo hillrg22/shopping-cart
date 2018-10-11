@@ -36,12 +36,11 @@ class App extends Component {
   }
 
 
-  onAddProduct = (prod) => {
+  onAddProduct = (object) => {
     this.setState({
-      products: this.state.cartItemsList.concat(prod)
+      cartItemsList: this.state.cartItemsList.concat(object)
 
     })
-    console.log(this.state.cartItemsList)
   }
 
   render() {
@@ -54,7 +53,7 @@ class App extends Component {
           <CartItems cartItemsList = {this.state.cartItemsList} />
         </div>
         <div>
-          <AddItem onAddProduct = {this.onAddProduct} selected = {this.state.selected} onSelectChange = {this.onSelectChange} products = {this.state.products} onSubmit ={this.onAddProduct} />
+          <AddItem cartItemsList = {this.state.cartItemsList} onAddProduct = {this.onAddProduct} selected = {this.state.selected} onSelectChange = {this.onSelectChange} products = {this.state.products} onSubmit ={this.onAddProduct} />
         </div>
         <footer>
           <CartFooter copyright={copyright}/>

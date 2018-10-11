@@ -10,6 +10,7 @@ class AddItem extends React.Component {
   onSubmit = (e) => {
     e.preventDefault()
     var newItem = {
+      id: this.props.cartItemsList.length +1,
       product: {
         id: 40,
         name: this.props.selected,
