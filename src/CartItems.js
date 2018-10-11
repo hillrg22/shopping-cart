@@ -17,7 +17,7 @@ class CartItems extends React.Component {
                 <div className="col-md-2">Quantity</div>
               </div>
             </div>
-              <CartItemComponent CartItemsList = {this.props.CartItemsList}/>
+              <CartItemComponent cartItemsList = {this.props.cartItemsList}/>
           </div>
       </div>
     </div>
