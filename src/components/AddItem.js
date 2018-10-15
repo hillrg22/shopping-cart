@@ -12,14 +12,15 @@ class AddItem extends React.Component {
     var newItem = {
       id: this.props.cartItemsList.length +1,
       product: {
-        id: 40,
+        id: this.refs.itemId.value,
         name: this.props.selected,
-        priceInCents: 399
+        priceInCents: this.refs.price.value
       },
       quantity: this.refs.amount.value
     };
     // console.log(newItem,'submitted', this.refs.amount.value);
       this.props.onAddProduct(newItem)
+
   }
 
   render() {
@@ -37,11 +38,15 @@ class AddItem extends React.Component {
         </div>
       <div>
         <button type="Submit" className= "btn btn-primary" >Submit</button>
+        <input type="hidden" ref="price" value="Schfifty-five" />
+        <input type="hidden" ref="itemId" value="What goes here?" />
       </div>
+
     </form>
     )
   }
 }
+
 
 
 export default AddItem
