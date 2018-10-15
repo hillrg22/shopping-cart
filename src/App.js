@@ -30,7 +30,7 @@ class App extends Component {
         { id: 47, name: 'Ergonomic Bronze Lamp', priceInCents: 40000 },
         { id: 48, name: 'Awesome Leather Shoes', priceInCents: 3990 },],
       selected: 'Mediocre Iron Watch',
-      totalAmt: 399
+      currentAmt: 399,
       currentId: 40
     }
   }
@@ -38,7 +38,8 @@ class App extends Component {
     this.setState({selected: event.target.value})
     let selectedProduct = this.state.products.filter(item => item.name === event.target.value)
     console.log(selectedProduct[0])
-    this.setState({totalAmt: selectedProduct[0].priceInCents })
+    this.setState({currentAmt: selectedProduct[0].priceInCents })
+    this.setState({currentId: selectedProduct[0].id})
   }
 
 
@@ -63,7 +64,7 @@ class App extends Component {
         <CartHeader />
         <CartItems cartItemsList = {this.state.cartItemsList} />
         <CartTotal totalAmt = {this.state.totalAmt} />
-        <AddItem cartItemsList = {this.state.cartItemsList} onAddProduct = {this.onAddProduct} selected = {this.state.selected} onSelectChange = {this.onSelectChange} totalAmt={this.state.totalAmt} products = {this.state.products} onSubmit ={this.onAddProduct} />
+        <AddItem cartItemsList = {this.state.cartItemsList} onAddProduct = {this.onAddProduct} selected = {this.state.selected} onSelectChange = {this.onSelectChange} currentId={this.state.currentId} currentAmt={this.state.currentAmt} products = {this.state.products} onSubmit ={this.onAddProduct} />
         <CartFooter copyright={copyright}/>
 
       </div>

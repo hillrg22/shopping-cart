@@ -20,8 +20,8 @@ class AddItem extends React.Component {
     };
     // console.log(newItem,'submitted', this.refs.amount.value);
       this.props.onAddProduct(newItem)
-
   }
+
 
   render() {
     return(
@@ -38,8 +38,8 @@ class AddItem extends React.Component {
         </div>
       <div>
         <button type="Submit" className= "btn btn-primary" >Submit</button>
-        <input type="hidden" ref="price" value="Schfifty-five" />
-        <input type="hidden" ref="itemId" value="What goes here?" />
+        <input type="hidden" ref="price" value={this.props.currentAmt} />
+        <input type="hidden" ref="itemId" value={this.props.currentId} />
       </div>
 
     </form>
