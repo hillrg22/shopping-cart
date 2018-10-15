@@ -9,6 +9,10 @@ class AddItem extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault()
+    if(this.refs.amount.value === "" || "0"){
+      alert("Please enter a quantity")
+    }
+    else{
     var newItem = {
       id: this.props.cartItemsList.length +1,
       product: {
@@ -20,6 +24,7 @@ class AddItem extends React.Component {
     };
     // console.log(newItem,'submitted', this.refs.amount.value);
       this.props.onAddProduct(newItem)
+    }
   }
 
 
@@ -34,7 +39,7 @@ class AddItem extends React.Component {
       </div>
       <div className = "form-group">
         <label htmlFor="Quantity">Quantity</label><br></br>
-          <input placeholder= "Enter Quantity" ref="amount"/>
+          <input placeholder= "Enter Quantity" ref="amount" />
         </div>
       <div>
         <button type="Submit" className= "btn btn-primary" >Submit</button>
