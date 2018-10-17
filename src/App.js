@@ -5,7 +5,7 @@ import CartFooter from './components/CartFooter.js'
 import CartItems from './components/CartItems.js'
 import CartItemComponent from './components/CartItemComponent.js'
 import AddItem from './components/AddItem.js'
-import CartTotal from './components/CartTotal.js'
+
 
 const copyright = "2018"
 
@@ -31,13 +31,12 @@ class App extends Component {
         { id: 48, name: 'Awesome Leather Shoes', priceInCents: 3990 },],
       selected: 'Mediocre Iron Watch',
       currentAmt: 399,
-      currentId: 40
+      currentId: 40,
     }
   }
   onSelectChange = (event) => {
     this.setState({selected: event.target.value})
     let selectedProduct = this.state.products.filter(item => item.name === event.target.value)
-    console.log(selectedProduct[0])
     this.setState({currentAmt: selectedProduct[0].priceInCents })
     this.setState({currentId: selectedProduct[0].id})
   }
@@ -46,25 +45,26 @@ class App extends Component {
   onAddProduct = (object) => {
     this.setState({
       cartItemsList: this.state.cartItemsList.concat(object)
-
     })
   }
-  updateTotal = (prices) => {
 
+
+  updateTotal = () => {
+    let totalPrice = this.state.cartItemsList.reduce((total,item) =>  {
+      console.log(item.quantity)
+      return total + parseInt(item.product.priceInCents*item.quantity)/100
+    }, 0)
+    return <p>Total: ${totalPrice}</p>
   }
 
-  //   const calcTotal = this.state.cartItemsList.product.map(item => {item.priceInCents} )
-  //   console.log(calcTotal)
-  //   setState
-  // }
 
   render() {
     return (
       <div className="App">
         <CartHeader />
-        <CartItems cartItemsList = {this.state.cartItemsList} />
-        <CartTotal totalAmt = {this.state.totalAmt} />
-        <AddItem cartItemsList = {this.state.cartItemsList} onAddProduct = {this.onAddProduct} selected = {this.state.selected} onSelectChange = {this.onSelectChange} currentId={this.state.currentId} currentAmt={this.state.currentAmt} products = {this.state.products} onSubmit ={this.onAddProduct} />
+        <CartItems  totalCartAmt ={this.state.totalCartAmt} cartItemsList = {this.state.cartItemsList} />
+        {this.updateTotal()}
+        <AddItem   cartItemsList = {this.state.cartItemsList} onAddProduct = {this.onAddProduct} selected = {this.state.selected} onSelectChange = {this.onSelectChange} currentId={this.state.currentId} currentAmt={this.state.currentAmt} products = {this.state.products} onSubmit ={this.onAddProduct} />
         <CartFooter copyright={copyright}/>
 
       </div>

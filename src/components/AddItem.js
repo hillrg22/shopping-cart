@@ -9,7 +9,7 @@ class AddItem extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault()
-    if(this.refs.amount.value === "" || "0"){
+    if(this.refs.amount.value === "" || this.refs.amount.value === "0"){
       alert("Please enter a quantity")
     }
     else{
@@ -23,7 +23,7 @@ class AddItem extends React.Component {
       quantity: this.refs.amount.value
     };
     // console.log(newItem,'submitted', this.refs.amount.value);
-      this.props.onAddProduct(newItem)
+      this.props.onAddProduct(newItem);
     }
   }
 
